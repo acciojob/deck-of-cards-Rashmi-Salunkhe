@@ -78,14 +78,17 @@ shuffleBtn.addEventListener('click', () => {
 });
 
 // Reset the game
+// Reset the game
 resetBtn.addEventListener('click', () => {
     const allCards = document.querySelectorAll('.whitebox2');
     allCards.forEach((card) => {
         deck.appendChild(card); // Move all cards back to the deck
     });
 
-    placedCards = {}; // Clear placed card data
-    localStorage.setItem('placedCards', JSON.stringify(placedCards));
+    // Clear placed cards both from memory and localStorage
+    placedCards = {}; // Reset in-memory placedCards object
+    localStorage.clear(); // Completely clear localStorage
+
     wonScreen.style.display = 'none'; // Hide the win screen
 });
 
